@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Future of Knowledge Work — The Economic Times</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --red:#E8001B;--red-d:#B5000F;
+  --salmon:#FCEAE4;--salmon-m:#F0D5CC;
+  --ink:#18100A;--ink-m:#3A2E28;--ink-mu:#7A6A60;--ink-f:#B0A098;
+  --bg:#F5EDE8;--white:#fff;
+  --border:#E0CFCA;--border-l:#EDE0DA;
+  --serif: Georgia,'Times New Roman',serif;
+  --sans:'Source Sans 3',Arial,sans-serif;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);font-family:var(--sans);color:var(--ink);font-size:14px;line-height:1.5}
+a{text-decoration:none;color:inherit}
+img{display:block;width:100%;height:100%;object-fit:cover}
+
+/* ═══ UTIL BAR ═══ */
+.util{background:#fff;border-bottom:1px solid var(--border-l);padding:0 32px;height:30px;display:flex;align-items:center;justify-content:space-between}
+.util-l{display:flex;gap:20px}
+.util-l a,.util-r a{font-size:11px;color:var(--ink-mu);transition:color .15s}
+.util-l a:hover,.util-r a:hover{color:var(--red)}
+.util-r{display:flex;gap:14px}
+
+/* ═══ HEADER ═══ */
+.hdr{background:var(--salmon);padding:18px 32px 13px}
+.hdr-in{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+.logo-bl{display:flex;flex-direction:column;align-items:center;flex:1}
+.logo-row{display:flex;align-items:center;gap:18px;margin-bottom:5px}
+.logo-et{font-family:var(--serif);font-size:30px;font-weight:700;color:var(--ink);letter-spacing:.3px;white-space:nowrap}
+.logo-dv{color:#ccc;font-size:28px;font-weight:200;line-height:1}
+.logo-fw{display:flex;flex-direction:column;line-height:1.1}
+.logo-fw-top{font-family:var(--sans);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--ink-mu);margin-bottom:3px}
+.logo-fw-main{font-family:var(--serif);font-size:20px;font-weight:700;color:var(--red);letter-spacing:.2px;white-space:nowrap}
+.datebar{font-size:11.5px;color:var(--ink-mu);text-align:center}
+.datebar a{color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink-mu)}
+.hdr-act{flex:1;display:flex;justify-content:flex-end;gap:8px;align-items:center}
+.b-wl{border:1px solid #999;border-radius:20px;padding:5px 16px;font-size:12px;color:#444;background:#fff;cursor:pointer;font-family:var(--sans);transition:border-color .15s,color .15s}
+.b-wl:hover{border-color:var(--red);color:var(--red)}
+.b-pr{border:1.5px solid var(--red);border-radius:20px;padding:5px 16px 5px 10px;font-size:12px;color:var(--red);background:#fff;cursor:pointer;display:flex;align-items:center;gap:6px;font-weight:600;font-family:var(--sans)}
+.b-pr .pd{background:var(--red);color:#fff;font-size:9px;font-weight:700;width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+
+/* ═══ MAIN NAV ═══ */
+.mnav{background:var(--salmon);border-bottom:1px solid var(--salmon-m);position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.07)}
+.mnav-in{max-width:1280px;margin:0 auto;padding:0 24px;display:flex;align-items:center;overflow-x:auto;scrollbar-width:none}
+.mnav-in::-webkit-scrollbar{display:none}
+.ham{font-size:20px;cursor:pointer;color:var(--ink-m);padding:10px 12px 10px 0;flex-shrink:0}
+.nv{padding:10px 11px;font-size:12.5px;font-weight:500;color:var(--ink-m);cursor:pointer;white-space:nowrap;border-bottom:2px solid transparent;margin-bottom:-1px;transition:color .15s,border-color .15s;flex-shrink:0}
+.nv:hover{color:var(--red)}
+.nv.active{color:var(--red);border-bottom-color:var(--red);font-weight:700}
+.nv.hl{color:var(--red);font-weight:700}
+.nsp{flex:1}
+.nsrch{background:none;border:none;font-size:17px;cursor:pointer;color:var(--ink-m);padding:8px;flex-shrink:0}
+
+/* ═══ CATEGORY STRIP ═══ */
+.cats{background:#fff;border-bottom:1px solid var(--border)}
+.cats-in{max-width:1280px;margin:0 auto;padding:0 24px;display:flex;overflow-x:auto;scrollbar-width:none}
+.cats-in::-webkit-scrollbar{display:none}
+.cat{padding:11px 15px;font-size:12.5px;font-weight:500;color:var(--ink-mu);cursor:pointer;white-space:nowrap;border-bottom:2px solid transparent;margin-bottom:-1px;transition:all .15s;flex-shrink:0}
+.cat:hover{color:var(--ink)}
+.cat.active{color:var(--red);border-bottom-color:var(--red);font-weight:700}
+
+/* ═══ WRAP ═══ */
+.wrap{max-width:1280px;margin:0 auto;padding:28px 24px}
+
+/* ═══ SECTION HEADER ═══ */
+.sec-hd{display:flex;align-items:center;justify-content:space-between;margin:44px 0 20px;padding-bottom:12px;border-bottom:2px solid var(--ink)}
+.sec-hd h2{font-family:var(--serif);font-size:22px;font-weight:700}
+.sec-hd a{font-size:12.5px;font-weight:600;color:var(--red);transition:opacity .15s}
+.sec-hd a:hover{opacity:.75}
+
+/* ═══ HERO ═══ */
+.hero{display:grid;grid-template-columns:1fr 390px;gap:4px;margin-bottom:4px;overflow:hidden;border-radius:3px}
+.hero-main{position:relative;cursor:pointer;min-height:500px;overflow:hidden}
+.hero-main img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.hero-main:hover img{transform:scale(1.03)}
+.hm-scrim{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.92) 0%,rgba(0,0,0,.4) 45%,rgba(0,0,0,.15) 100%);z-index:1}
+.hm-award{position:absolute;top:0;left:0;right:0;bottom:50%;display:flex;align-items:center;justify-content:center;z-index:2;padding:28px}
+.aw-frame{border:1px solid rgba(255,215,80,.4);padding:22px 28px;text-align:center;max-width:340px;backdrop-filter:blur(2px)}
+.aw-et{font-size:9.5px;letter-spacing:2.5px;color:rgba(255,255,255,.55);text-transform:uppercase;font-weight:600;margin-bottom:10px}
+.aw-title{font-family:var(--serif);font-size:19px;font-weight:700;color:#FFD060;line-height:1.35;margin-bottom:10px}
+.aw-date{font-size:11px;color:rgba(255,255,255,.65);letter-spacing:.8px;margin-bottom:14px;text-transform:uppercase}
+.aw-cta{background:var(--red);color:#fff;font-size:11px;font-weight:700;padding:9px 22px;display:inline-block;letter-spacing:.5px;cursor:pointer;transition:background .15s}
+.aw-cta:hover{background:var(--red-d)}
+.hm-over{position:absolute;bottom:0;left:0;right:0;padding:30px 32px 28px;z-index:2}
+.hm-tag{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--red);background:#fff;padding:3px 10px;display:inline-block;margin-bottom:10px}
+.hm-hl{font-family:var(--serif);font-size:28px;font-weight:700;line-height:1.27;color:#fff;margin-bottom:9px;transition:color .2s}
+.hero-main:hover .hm-hl{color:#FFD060}
+.hm-desc{font-size:13.5px;color:rgba(255,255,255,.72);line-height:1.6;margin-bottom:7px}
+.hm-meta{font-size:10.5px;color:rgba(255,255,255,.45)}
+
+.hero-stack{display:flex;flex-direction:column;gap:4px}
+.hc{position:relative;cursor:pointer;overflow:hidden;flex:1;min-height:248px}
+.hc img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.hc:hover img{transform:scale(1.04)}
+.hc-scrim{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.85) 0%,rgba(0,0,0,.08) 60%,transparent 100%);z-index:1}
+.hc-ov{position:absolute;bottom:0;left:0;right:0;padding:18px 20px;z-index:2}
+.hc-tag{font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--red);background:#fff;padding:2px 8px;display:inline-block;margin-bottom:7px}
+.hc-hl{font-family:var(--serif);font-size:16px;font-weight:700;color:#fff;line-height:1.33;transition:color .2s}
+.hc:hover .hc-hl{color:#FFD060}
+.hc-meta{font-size:10px;color:rgba(255,255,255,.45);margin-top:5px}
+
+/* ═══ ARTICLE GRID ═══ */
+.agrid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-bottom:8px}
+.ac{background:var(--white);border:1px solid var(--border);cursor:pointer;overflow:hidden;transition:box-shadow .22s,transform .22s;border-radius:3px}
+.ac:hover{box-shadow:0 8px 32px rgba(0,0,0,.11);transform:translateY(-4px)}
+.ac-img{height:185px;position:relative;overflow:hidden}
+.ac-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.ac:hover .ac-img img{transform:scale(1.04)}
+.ac-tag{position:absolute;bottom:10px;left:10px;font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;background:var(--red);color:#fff;padding:3px 8px;z-index:2}
+.ac-body{padding:16px 16px 18px}
+.ac-hl{font-family:var(--serif);font-size:14.5px;font-weight:700;line-height:1.4;color:var(--ink);margin-bottom:8px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.ac:hover .ac-hl{color:var(--red)}
+.ac-desc{font-size:12px;color:var(--ink-mu);line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin-bottom:9px}
+.ac-meta{font-size:10.5px;color:var(--ink-f)}
+.ac.wide{grid-column:span 2;display:flex;flex-direction:row}
+.ac.wide .ac-img{flex:0 0 260px;height:auto;min-height:200px}
+.ac.wide .ac-body{flex:1;display:flex;flex-direction:column;justify-content:center;padding:20px 24px}
+.ac.wide .ac-hl{font-size:19px;-webkit-line-clamp:4;margin-bottom:10px}
+.ac.wide .ac-desc{-webkit-line-clamp:3}
+
+/* ═══ EVENTS ═══ */
+.ev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:8px}
+.evc{background:var(--white);border:1px solid var(--border);border-radius:3px;overflow:hidden;cursor:pointer;transition:box-shadow .22s,transform .22s}
+.evc:hover{box-shadow:0 8px 32px rgba(0,0,0,.11);transform:translateY(-4px)}
+.evc-img{height:220px;position:relative;overflow:hidden}
+.evc-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.evc:hover .evc-img img{transform:scale(1.04)}
+.evc-img::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.55) 0%,transparent 55%)}
+.evc-badge{position:absolute;top:16px;left:16px;background:var(--red);color:#fff;padding:8px 12px;text-align:center;z-index:2;min-width:52px}
+.evc-badge .dy{font-family:var(--serif);font-size:26px;font-weight:700;line-height:1}
+.evc-badge .mn{font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-top:1px}
+.evc-format{position:absolute;bottom:14px;right:14px;font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:#fff;background:rgba(255,255,255,.18);backdrop-filter:blur(6px);padding:4px 10px;z-index:2;border:1px solid rgba(255,255,255,.2)}
+.evc-body{padding:20px 20px 22px}
+.evc-hl{font-family:var(--serif);font-size:17px;font-weight:700;line-height:1.35;color:var(--ink);margin-bottom:7px}
+.evc:hover .evc-hl{color:var(--red)}
+.evc-loc{font-size:12.5px;color:var(--ink-mu);margin-bottom:16px;display:flex;align-items:center;gap:5px}
+.evc-btn{display:inline-flex;align-items:center;gap:6px;border:1.5px solid var(--red);color:var(--red);font-size:12px;font-weight:700;padding:8px 20px;cursor:pointer;transition:background .15s,color .15s;font-family:var(--sans)}
+.evc:hover .evc-btn,.evc-btn:hover{background:var(--red);color:#fff}
+
+/* ═══ PODCASTS ═══ */
+.pod-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:8px}
+.podc{background:var(--white);border:1px solid var(--border);border-radius:3px;overflow:hidden;transition:box-shadow .22s,transform .22s;display:flex;flex-direction:column}
+.podc:hover{box-shadow:0 8px 32px rgba(0,0,0,.11);transform:translateY(-3px)}
+.pod-cover{height:210px;position:relative;overflow:hidden;flex-shrink:0}
+.pod-cover img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.podc:hover .pod-cover img{transform:scale(1.04)}
+.pod-cover::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.45) 0%,transparent 60%)}
+.pod-ep-badge{position:absolute;top:12px;left:12px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:#fff;background:var(--red);padding:4px 10px;z-index:2}
+.pod-body{padding:20px 20px 22px;flex:1;display:flex;flex-direction:column}
+.pod-meta-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.pod-cat{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--red)}
+.pod-dur-txt{font-size:11px;color:var(--ink-f);font-weight:500}
+.pod-hl{font-family:var(--serif);font-size:15.5px;font-weight:700;line-height:1.38;color:var(--ink);margin-bottom:8px;flex:1}
+.podc:hover .pod-hl{color:var(--red)}
+.pod-guest{font-size:12px;color:var(--ink-mu);margin-bottom:18px}
+
+/* Player controls */
+.pod-player{display:flex;align-items:center;gap:12px;background:var(--bg);padding:10px 14px;border-radius:3px;margin-top:auto}
+.pod-play-ctrl{width:36px;height:36px;flex-shrink:0;background:var(--red);border:none;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .15s,transform .15s}
+.pod-play-ctrl:hover{background:var(--red-d);transform:scale(1.08)}
+.play-icon{color:#fff;font-size:13px;margin-left:2px;line-height:1;font-style:normal}
+.pod-play-ctrl.playing .play-icon{margin-left:0}
+.pod-progress-wrap{flex:1;cursor:pointer;padding:8px 0}
+.pod-progress-bg{height:4px;background:var(--border);border-radius:2px;position:relative;overflow:hidden}
+.pod-progress-fill{height:100%;background:var(--red);border-radius:2px;transition:width .5s linear;pointer-events:none}
+.pod-time{font-size:10.5px;color:var(--ink-mu);white-space:nowrap;font-weight:500;flex-shrink:0;min-width:80px;text-align:right}
+
+/* ═══ NEWSLETTER ═══ */
+.nl-section{background:var(--ink);padding:64px 0;margin:44px 0 0;position:relative;overflow:hidden}
+.nl-section::before{content:'FoKW';position:absolute;right:-40px;top:-20px;font-family:var(--serif);font-size:220px;font-weight:700;color:rgba(255,255,255,.025);line-height:1;pointer-events:none;user-select:none}
+.nl-in{max-width:1280px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;gap:48px}
+.nl-txt{flex:1}
+.nl-eye{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--red);margin-bottom:10px}
+.nl-hl{font-family:var(--serif);font-size:32px;font-weight:700;color:#fff;line-height:1.25;margin-bottom:10px}
+.nl-sub{font-size:14px;color:rgba(255,255,255,.55);line-height:1.65;max-width:520px}
+.nl-right{flex-shrink:0;min-width:380px}
+.nl-fm{display:flex;margin-bottom:14px}
+.nl-input{flex:1;border:none;padding:14px 18px;font-size:13.5px;font-family:var(--sans);outline:none;background:#fff}
+.nl-go{background:var(--red);color:#fff;border:none;padding:14px 26px;font-size:13.5px;font-weight:700;font-family:var(--sans);cursor:pointer;letter-spacing:.3px;transition:background .15s;white-space:nowrap}
+.nl-go:hover{background:var(--red-d)}
+.nl-note{font-size:11px;color:rgba(255,255,255,.35)}
+.nl-stats{display:flex;gap:32px;margin-top:28px}
+.nl-stat .num{font-family:var(--serif);font-size:26px;font-weight:700;color:#fff}
+.nl-stat .lbl{font-size:11px;color:rgba(255,255,255,.45);text-transform:uppercase;letter-spacing:.8px;margin-top:2px}
+
+/* ═══ PARTNER SECTION ═══ */
+.partner-section{background:var(--white);padding:72px 0;position:relative;overflow:hidden}
+.partner-section::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--red)}
+.ps-in{max-width:1280px;margin:0 auto;padding:0 24px}
+.ps-top{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;margin-bottom:52px}
+.ps-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--red);margin-bottom:12px}
+.ps-hl{font-family:var(--serif);font-size:36px;font-weight:700;line-height:1.25;color:var(--ink);margin-bottom:16px}
+.ps-desc{font-size:15px;color:var(--ink-mu);line-height:1.7;margin-bottom:28px}
+.ps-cta-main{display:inline-block;background:var(--red);color:#fff;font-size:14px;font-weight:700;padding:14px 32px;cursor:pointer;font-family:var(--sans);transition:background .15s;letter-spacing:.3px;border:none}
+.ps-cta-main:hover{background:var(--red-d)}
+.ps-img{height:380px;border-radius:3px;overflow:hidden;position:relative}
+.ps-img img{width:100%;height:100%;object-fit:cover}
+.ps-img-badge{position:absolute;bottom:20px;left:20px;background:var(--red);color:#fff;font-size:11px;font-weight:700;padding:8px 18px;text-transform:uppercase;letter-spacing:.6px}
+.ps-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.ps-card{border:1px solid var(--border-l);padding:28px 24px;border-radius:3px;transition:border-color .2s,box-shadow .2s,transform .2s;cursor:pointer;background:#fff}
+.ps-card:hover{border-color:var(--red);box-shadow:0 6px 28px rgba(232,0,27,.09);transform:translateY(-3px)}
+.ps-card-icon{width:48px;height:48px;background:var(--salmon);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:16px;font-size:22px}
+.ps-card-title{font-family:var(--serif);font-size:16px;font-weight:700;color:var(--ink);margin-bottom:8px}
+.ps-card-desc{font-size:12.5px;color:var(--ink-mu);line-height:1.6;margin-bottom:14px}
+.ps-card-range{font-size:12px;font-weight:700;color:var(--red)}
+
+/* ═══ FOOTER ═══ */
+.ft-wrap{background:var(--ink)}
+.ft-top{max-width:1280px;margin:0 auto;padding:36px 24px 28px;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px;border-bottom:1px solid rgba(255,255,255,.07)}
+.fc h5{font-family:var(--serif);font-size:13.5px;font-weight:700;color:#fff;margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid rgba(255,255,255,.09)}
+.fc ul{list-style:none}
+.fc ul li{margin-bottom:8px}
+.fc ul li a{font-size:12px;color:#666;transition:color .12s}
+.fc ul li a:hover{color:var(--red)}
+.ft-bot{max-width:1280px;margin:0 auto;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.ft-logo{font-family:var(--serif);font-size:13px;font-weight:700;color:#fff}
+.ft-copy{font-size:11px;color:#444}
+.ft-lks{display:flex;gap:16px}
+.ft-lks a{font-size:11px;color:#444;transition:color .12s}
+.ft-lks a:hover{color:var(--red)}
+
+/* ═══ GPT FLOAT ═══ */
+.gf{position:fixed;bottom:24px;right:24px;z-index:999;display:flex;align-items:flex-end;gap:10px}
+.gb{background:#fff;border:1px solid var(--border);border-radius:10px 10px 0 10px;padding:14px 16px;width:232px;box-shadow:0 8px 32px rgba(0,0,0,.14)}
+.gb-lbl{font-size:11.5px;font-weight:700;color:var(--ink);margin-bottom:4px}
+.gb-q{font-size:11px;color:var(--ink-mu);line-height:1.45;font-style:italic;transition:opacity .2s;min-height:32px}
+.gb-dots{display:flex;gap:4px;margin-top:9px}
+.gd{width:6px;height:6px;border-radius:50%;background:var(--border)}
+.gd.on{background:var(--red)}
+.gorb{width:50px;height:50px;background:var(--red);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;color:#fff;font-size:11px;font-weight:700;letter-spacing:.3px;box-shadow:0 4px 18px rgba(232,0,27,.45);transition:transform .15s;flex-shrink:0}
+.gorb:hover{transform:scale(1.08)}
+
+/* ═══ RESPONSIVE ═══ */
+@media(max-width:1100px){
+  .agrid{grid-template-columns:repeat(2,1fr)}
+  .ac.wide{grid-column:span 2}
+  .hero{grid-template-columns:1fr 340px}
+  .ps-top{grid-template-columns:1fr;gap:32px}
+  .ps-img{height:280px}
+  .ps-cards{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:768px){
+  .hero{grid-template-columns:1fr}
+  .hero-stack{display:none}
+  .agrid{grid-template-columns:1fr}
+  .ac.wide{flex-direction:column}
+  .ac.wide .ac-img{flex:0 0 auto;height:185px;width:100%}
+  .ev-grid,.pod-grid{grid-template-columns:1fr}
+  .nl-in{flex-direction:column;gap:28px}
+  .nl-right{min-width:0;width:100%}
+  .ps-cards{grid-template-columns:1fr 1fr}
+  .ft-top{grid-template-columns:1fr 1fr}
+  .hdr-act,.util{display:none}
+  .gb{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- UTIL -->
+<div class="util">
+  <div class="util-l">
+    <a href="#">ET Home</a><a href="#">ET Prime</a><a href="#">ETMarkets</a><a href="#">ET Masterclass</a><a href="#">ET Events</a>
+  </div>
+  <div class="util-r"><a href="#">Login</a><a href="#">Sign Up</a></div>
+</div>
+
+<!-- HEADER -->
+<header class="hdr">
+  <div class="hdr-in">
+    <div style="flex:1"></div>
+    <div class="logo-bl">
+      <div class="logo-row">
+        <span class="logo-et">The Economic Times</span>
+        <span class="logo-dv">|</span>
+        <div class="logo-fw">
+          <span class="logo-fw-top">Section</span>
+          <span class="logo-fw-main">Future of Knowledge Work</span>
+        </div>
+      </div>
+      <div class="datebar">English Edition ▾ &nbsp;|&nbsp; <span id="liveDate">11 May, 2026</span> &nbsp;|&nbsp; <a href="#">Today's ePaper</a></div>
+    </div>
+    <div class="hdr-act">
+      <button class="b-wl">My Watchlist</button>
+      <button class="b-pr"><span class="pd">P</span> Prime Member ▾</button>
+    </div>
+  </div>
+</header>
+
+<!-- MAIN NAV -->
+<nav class="mnav">
+  <div class="mnav-in">
+    <span class="ham">☰</span>
+    <span class="nv">Home</span><span class="nv hl">ET Prime</span><span class="nv">Markets</span><span class="nv">Market Data</span><span class="nv hl">Masterclass</span><span class="nv">IPO</span><span class="nv">News</span><span class="nv">Industry</span><span class="nv">SME</span><span class="nv">Tech</span><span class="nv active">AI</span><span class="nv">Careers</span><span class="nv">Opinion</span><span class="nv">Wealth</span>
+    <div class="nsp"></div>
+    <span style="padding:0 8px;cursor:pointer;color:var(--ink-mu);font-size:18px">···</span>
+    <button class="nsrch">🔍</button>
+  </div>
+</nav>
+
+<!-- CATS -->
+<div class="cats">
+  <div class="cats-in">
+    <span class="cat active" onclick="setCat(this)">Featured</span>
+    <span class="cat" onclick="setCat(this)">AI &amp; Automation</span>
+    <span class="cat" onclick="setCat(this)">Leadership</span>
+    <span class="cat" onclick="setCat(this)">Enterprise Tech</span>
+    <span class="cat" onclick="setCat(this)">Talent &amp; Skills</span>
+    <span class="cat" onclick="setCat(this)">GCC &amp; Outsourcing</span>
+    <span class="cat" onclick="setCat(this)">BFSI</span>
+    <span class="cat" onclick="setCat(this)">Startups</span>
+    <span class="cat" onclick="setCat(this)">Policy</span>
+    <span class="cat" onclick="setCat(this)">ET FoKW Summit ▾</span>
+  </div>
+</div>
+
+<!-- PAGE BODY -->
+<div class="wrap">
+
+  <!-- ── HERO ── -->
+  <div class="hero">
+    <div class="hero-main">
+      <img src="https://images.unsplash.com/photo-1540575467537-b7b86f3affd6?auto=format&fit=crop&w=1400&q=85" alt="Conference">
+      <div class="hm-scrim"></div>
+      <div class="hm-over">
+        <div class="hm-tag">Editor's Pick</div>
+        <div class="hm-hl">ET FoKW Conclave 2026: Benchmarking India's AI-Driven Enterprise Transformation</div>
+        <div class="hm-desc">As agentic AI moves from experimentation to large-scale deployment, India's top CXOs converge to redefine what intelligent work means for 5 million knowledge workers...</div>
+        <div class="hm-meta">ET Bureau &nbsp;·&nbsp; 11 May 2026 &nbsp;·&nbsp; 6 min read</div>
+      </div>
+    </div>
+    <div class="hero-stack">
+      <div class="hc">
+        <img src="https://images.unsplash.com/photo-1677442135703-1787eea3b476?auto=format&fit=crop&w=800&q=85" alt="AI">
+        <div class="hc-scrim"></div>
+        <div class="hc-ov">
+          <div class="hc-tag">AI Agents</div>
+          <div class="hc-hl">The Rise of Autonomous Work: From Chat to Full Execution Across India's Enterprises</div>
+          <div class="hc-meta">Kavya Iyer &nbsp;·&nbsp; 10 May 2026</div>
+        </div>
+      </div>
+      <div class="hc">
+        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=85" alt="GCC">
+        <div class="hc-scrim"></div>
+        <div class="hc-ov">
+          <div class="hc-tag">GCC</div>
+          <div class="hc-hl">India's GCCs Are Quietly Becoming the World's Most Powerful AI Innovation Labs</div>
+          <div class="hc-meta">Rahul Nair &nbsp;·&nbsp; 9 May 2026</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── ARTICLES ── -->
+  <div class="sec-hd">
+    <h2>Latest Articles</h2>
+    <a href="#">View All Stories →</a>
+  </div>
+  <div class="agrid">
+
+    <div class="ac wide">
+      <div class="ac-img">
+        <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=900&q=85" alt="Workforce">
+        <div class="ac-tag">Workforce</div>
+      </div>
+      <div class="ac-body">
+        <div class="ac-hl">How Generative AI Is Redrawing India's Org Chart — and Who Controls Knowledge Work in 2026</div>
+        <div class="ac-desc">As agentic AI proliferates, the line between human judgment and machine execution is shifting faster than most leadership teams anticipated. What this means for India's 5 million knowledge workers.</div>
+        <div class="ac-meta">ET Bureau &nbsp;·&nbsp; 11 May 2026 &nbsp;·&nbsp; 6 min read</div>
+      </div>
+    </div>
+
+    <div class="ac">
+      <div class="ac-img">
+        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=700&q=85" alt="Leadership">
+        <div class="ac-tag">Leadership</div>
+      </div>
+      <div class="ac-body">
+        <div class="ac-hl">Future Skills Every C-Suite Leader Must Have Before 2028</div>
+        <div class="ac-desc">McKinsey, WEF and India's top CHROs align on a new leadership curriculum</div>
+        <div class="ac-meta">Sophia Lee &nbsp;·&nbsp; 10 May 2026</div>
+      </div>
+    </div>
+
+    <div class="ac">
+      <div class="ac-img">
+        <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=700&q=85" alt="BFSI">
+        <div class="ac-tag">BFSI</div>
+      </div>
+      <div class="ac-body">
+        <div class="ac-hl">Agentic AI in Financial Services: Risk, Compliance and the Human Override</div>
+        <div class="ac-desc">How India's banks are deploying autonomous agents while managing regulatory exposure</div>
+        <div class="ac-meta">Arjun Rao &nbsp;·&nbsp; 9 May 2026</div>
+      </div>
+    </div>
+
+    <div class="ac">
+      <div class="ac-img">
+        <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=700&q=85" alt="Talent">
+        <div class="ac-tag">Talent</div>
+      </div>
+      <div class="ac-body">
+        <div class="ac-hl">AI Certifications Are the New Benchmark for Institutional Readiness</div>
+        <div class="ac-desc">Why enterprise credentialing is becoming a board-level priority in 2026</div>
+        <div class="ac-meta">Sonali Verma &nbsp;·&nbsp; 8 May 2026</div>
+      </div>
+    </div>
+
+    <div class="ac">
+      <div class="ac-img">
+        <img src="https://images.unsplash.com/photo-1529107386315-e1a2ef2a648e?auto=format&fit=crop&w=700&q=85" alt="Policy">
+        <div class="ac-tag">Policy</div>
+      </div>
+      <div class="ac-body">
+        <div class="ac-hl">India's AI Governance Framework 2026: What Every CXO Must Know</div>
+        <div class="ac-desc">The regulatory window is crystallising fast — and enterprises are racing to respond</div>
+        <div class="ac-meta">ET Policy Desk &nbsp;·&nbsp; 7 May 2026</div>
+      </div>
+    </div>
+
+    <div class="ac">
+      <div class="ac-img">
+        <img src="https://images.unsplash.com/photo-1677442135703-1787eea3b476?auto=format&fit=crop&w=700&q=85" alt="Automation">
+        <div class="ac-tag">Automation</div>
+      </div>
+      <div class="ac-body">
+        <div class="ac-hl">When AI Knows Your Workflows Better Than Your Manager Does</div>
+        <div class="ac-desc">Process intelligence platforms are reshaping who owns institutional knowledge</div>
+        <div class="ac-meta">Michael Brown &nbsp;·&nbsp; 6 May 2026</div>
+      </div>
+    </div>
+
+    <div class="ac">
+      <div class="ac-img">
+        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=700&q=85" alt="Enterprise">
+        <div class="ac-tag">Enterprise Tech</div>
+      </div>
+      <div class="ac-body">
+        <div class="ac-hl">Reskilling at Scale: How HCL, Infosys and TCS Are Rebuilding for the AI Era</div>
+        <div class="ac-desc">500,000 employees. Three firms. One inflection point in India's talent economy</div>
+        <div class="ac-meta">John Carter &nbsp;·&nbsp; 5 May 2026</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ── EVENTS ── -->
+  <div class="sec-hd">
+    <h2>Upcoming Events</h2>
+    <a href="#">All Events →</a>
+  </div>
+  <div class="ev-grid">
+    <div class="evc">
+      <div class="evc-img">
+        <img src="https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?auto=format&fit=crop&w=900&q=85" alt="Bengaluru">
+        <div class="evc-badge"><div class="dy">12</div><div class="mn">Jun</div></div>
+        <div class="evc-format">Flagship Summit</div>
+      </div>
+      <div class="evc-body">
+        <div class="evc-hl">ET Future of Knowledge Work Conclave — Bengaluru 2026</div>
+        <div class="evc-loc">📍 JW Marriott, Bengaluru</div>
+        <span class="evc-btn">Register Now →</span>
+      </div>
+    </div>
+    <div class="evc">
+      <div class="evc-img">
+        <img src="https://images.unsplash.com/photo-1560439514-4e9645039924?auto=format&fit=crop&w=900&q=85" alt="Delhi">
+        <div class="evc-badge" style="background:#1A3A7A"><div class="dy">28</div><div class="mn">Jul</div></div>
+        <div class="evc-format">Masterclass</div>
+      </div>
+      <div class="evc-body">
+        <div class="evc-hl">AI Leadership Masterclass — New Delhi</div>
+        <div class="evc-loc">📍 The Leela Palace, New Delhi</div>
+        <span class="evc-btn">Register Now →</span>
+      </div>
+    </div>
+    <div class="evc">
+      <div class="evc-img">
+        <img src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=900&q=85" alt="Mumbai">
+        <div class="evc-badge" style="background:#0A5030"><div class="dy">16</div><div class="mn">Aug</div></div>
+        <div class="evc-format">Summit</div>
+      </div>
+      <div class="evc-body">
+        <div class="evc-hl">ET Enterprise AI Forum — Mumbai 2026</div>
+        <div class="evc-loc">📍 Grand Hyatt, Mumbai</div>
+        <span class="evc-btn">Register Now →</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── PODCASTS ── -->
+  <div class="sec-hd">
+    <h2>Podcasts &amp; Video</h2>
+    <a href="#">All Episodes →</a>
+  </div>
+  <div class="pod-grid">
+
+    <div class="podc" id="pod0">
+      <div class="pod-cover">
+        <img src="https://images.unsplash.com/photo-1590602847861-f357a9332bbc?auto=format&fit=crop&w=800&q=85" alt="Podcast 1">
+        <div class="pod-ep-badge">EP 24</div>
+      </div>
+      <div class="pod-body">
+        <div class="pod-meta-row">
+          <span class="pod-cat">Leadership</span>
+          <span class="pod-dur-txt">32 min</span>
+        </div>
+        <div class="pod-hl">AI Leadership in 2026: What India's CXOs Are Getting Fundamentally Wrong</div>
+        <div class="pod-guest">Andrew Ng &nbsp;·&nbsp; Deeplearning.ai</div>
+        <div class="pod-player" data-idx="0">
+          <button class="pod-play-ctrl" onclick="togglePlay(0)">
+            <span class="play-icon">▶</span>
+          </button>
+          <div class="pod-progress-wrap" onclick="seekPod(event,0)">
+            <div class="pod-progress-bg">
+              <div class="pod-progress-fill" id="fill0" style="width:0%"></div>
+            </div>
+          </div>
+          <span class="pod-time" id="time0">0:00 / 32:00</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="podc" id="pod1">
+      <div class="pod-cover">
+        <img src="https://images.unsplash.com/photo-1478737270239-2f02b77fc618?auto=format&fit=crop&w=800&q=85" alt="Podcast 2">
+        <div class="pod-ep-badge">EP 23</div>
+      </div>
+      <div class="pod-body">
+        <div class="pod-meta-row">
+          <span class="pod-cat">Future of Work</span>
+          <span class="pod-dur-txt">28 min</span>
+        </div>
+        <div class="pod-hl">The Future of White-Collar Work After the Agentic Revolution</div>
+        <div class="pod-guest">Sarah Johnson &nbsp;·&nbsp; McKinsey Global Institute</div>
+        <div class="pod-player" data-idx="1">
+          <button class="pod-play-ctrl" onclick="togglePlay(1)">
+            <span class="play-icon">▶</span>
+          </button>
+          <div class="pod-progress-wrap" onclick="seekPod(event,1)">
+            <div class="pod-progress-bg">
+              <div class="pod-progress-fill" id="fill1" style="width:0%"></div>
+            </div>
+          </div>
+          <span class="pod-time" id="time1">0:00 / 28:00</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="podc" id="pod2">
+      <div class="pod-cover">
+        <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=800&q=85" alt="Podcast 3">
+        <div class="pod-ep-badge">EP 22</div>
+      </div>
+      <div class="pod-body">
+        <div class="pod-meta-row">
+          <span class="pod-cat">Research</span>
+          <span class="pod-dur-txt">40 min</span>
+        </div>
+        <div class="pod-hl">Can AI Replace Knowledge Workers? The Evidence Is Far More Complicated</div>
+        <div class="pod-guest">David Miller &nbsp;·&nbsp; MIT Sloan</div>
+        <div class="pod-player" data-idx="2">
+          <button class="pod-play-ctrl" onclick="togglePlay(2)">
+            <span class="play-icon">▶</span>
+          </button>
+          <div class="pod-progress-wrap" onclick="seekPod(event,2)">
+            <div class="pod-progress-bg">
+              <div class="pod-progress-fill" id="fill2" style="width:0%"></div>
+            </div>
+          </div>
+          <span class="pod-time" id="time2">0:00 / 40:00</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div><!-- /wrap -->
+
+<!-- ── NEWSLETTER (full bleed) ── -->
+<div class="nl-section">
+  <div class="nl-in">
+    <div class="nl-txt">
+      <div class="nl-eye">FoKW Weekly Brief</div>
+      <div class="nl-hl">India's #1 Future of<br>Work Intelligence Brief</div>
+      <div class="nl-sub">AI trends, workforce data, CXO interviews and event dispatches — straight to your inbox, every Monday morning.</div>
+    </div>
+    <div class="nl-right">
+      <div class="nl-fm">
+        <input class="nl-input" type="email" id="nlEmail" placeholder="Enter your work email" />
+        <button class="nl-go" onclick="doSub()">Subscribe Free</button>
+      </div>
+      <div class="nl-note">No spam. Unsubscribe anytime. Your data is never shared.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── PARTNERSHIP (full bleed) ── -->
+<div class="partner-section">
+  <div class="ps-in">
+    <div class="ps-top">
+      <div>
+        <div class="ps-eyebrow">Partnership Opportunities</div>
+        <div class="ps-hl">Reach India's Top Enterprise Transformation Leaders</div>
+        <div class="ps-desc">The ET Future of Knowledge Work platform gives your brand direct access to 50,000+ CHROs, CIOs, CDOs, and enterprise transformation decision-makers across 4 city summits, a weekly newsletter, and a year-round digital editorial property.</div>
+        <button class="ps-cta-main" onclick="alert('Partner enquiry — team will reach out within 24 hours.')">Enquire About Partnership →</button>
+      </div>
+      <div class="ps-img">
+        <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=900&q=85" alt="Partnership">
+        <div class="ps-img-badge">Partnership Opportunities</div>
+      </div>
+    </div>
+    <div class="ps-cards">
+      <div class="ps-card">
+        <div class="ps-card-icon">🏆</div>
+        <div class="ps-card-title">Title Sponsorship</div>
+        <div class="ps-card-desc">Full-summit ownership with keynote slot, branding across all touchpoints, and exclusive delegate networking access.</div>
+      </div>
+      <div class="ps-card">
+        <div class="ps-card-icon">🎤</div>
+        <div class="ps-card-title">Speakership</div>
+        <div class="ps-card-desc">Curated panel slots and standalone thought-leadership sessions in front of enterprise decision-makers.</div>
+      </div>
+      <div class="ps-card">
+        <div class="ps-card-icon">🤝</div>
+        <div class="ps-card-title">Roundtable Host</div>
+        <div class="ps-card-desc">Intimate, invite-only roundtables with pre-qualified CXOs from your target segment — moderated by ET editorial.</div>
+      </div>
+      <div class="ps-card">
+        <div class="ps-card-icon">📰</div>
+        <div class="ps-card-title">Media Partner</div>
+        <div class="ps-card-desc">Co-branded content series, newsletter integration, and digital editorial programmes across our properties.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="ft-wrap">
+  <div class="ft-top">
+    <div class="fc">
+      <h5>Future of Knowledge Work</h5>
+      <ul>
+        <li><a href="#">About the Platform</a></li>
+        <li><a href="#">Editorial Team</a></li>
+        <li><a href="#">Advisory Board</a></li>
+        <li><a href="#">Submit a Story</a></li>
+        <li><a href="#">Research Reports</a></li>
+        <li><a href="#">Whitepapers</a></li>
+      </ul>
+    </div>
+    <div class="fc">
+      <h5>Events &amp; Summits</h5>
+      <ul>
+        <li><a href="#">FoKW Conclave — Bengaluru</a></li>
+        <li><a href="#">AI Masterclass — Delhi</a></li>
+        <li><a href="#">Enterprise AI Forum — Mumbai</a></li>
+        <li><a href="#">Hyderabad Edition — Oct</a></li>
+        <li><a href="#">Past Events Archive</a></li>
+      </ul>
+    </div>
+    <div class="fc">
+      <h5>Resources</h5>
+      <ul>
+        <li><a href="#">Industry Reports</a></li>
+        <li><a href="#">Podcast Archive</a></li>
+        <li><a href="#">Video Series</a></li>
+        <li><a href="#">FoKW Brief Newsletter</a></li>
+        <li><a href="#">Advertise With Us</a></li>
+      </ul>
+    </div>
+    <div class="fc">
+      <h5>Connect</h5>
+      <ul>
+        <li><a href="#">LinkedIn</a></li>
+        <li><a href="#">YouTube</a></li>
+        <li><a href="#">Twitter / X</a></li>
+        <li><a href="#">Contact Us</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="ft-bot">
+    <div class="ft-logo">The Economic Times · Future of Knowledge Work</div>
+    <div class="ft-copy">© 2026 Bennett, Coleman &amp; Co. Ltd. All rights reserved.</div>
+    <div class="ft-lks"><a href="#">Privacy Policy</a><a href="#">Terms of Use</a><a href="#">Sitemap</a></div>
+  </div>
+</div>
+
+<!-- GPT FLOAT -->
+<div class="gf">
+  <div class="gb">
+    <div class="gb-lbl">Try asking FoKW GPT</div>
+    <div class="gb-q" id="gptQ">How is AI reshaping knowledge work in India?</div>
+    <div class="gb-dots">
+      <div class="gd on"></div><div class="gd"></div><div class="gd"></div><div class="gd"></div>
+    </div>
+  </div>
+  <div class="gorb" id="gorb" onclick="toggleGpt()">AI</div>
+</div>
+
+<script>
+document.querySelectorAll('.nv').forEach(n=>{
+  n.addEventListener('click',function(){
+    document.querySelectorAll('.nv').forEach(x=>x.classList.remove('active'));
+    if(!this.classList.contains('hl'))this.classList.add('active');
+  });
+});
+function setCat(el){
+  document.querySelectorAll('.cat').forEach(c=>c.classList.remove('active'));
+  el.classList.add('active');
+}
+function doSub(){
+  const v=document.getElementById('nlEmail').value.trim();
+  if(!v||!v.includes('@')){alert('Please enter a valid email.');return;}
+  const b=document.querySelector('.nl-go');
+  b.textContent="✓ You're In!";b.style.background='#0A7A30';
+  setTimeout(()=>{b.textContent='Subscribe Free';b.style.background='';document.getElementById('nlEmail').value='';},3000);
+}
+let gOpen=true;
+function toggleGpt(){
+  gOpen=!gOpen;
+  document.querySelector('.gb').style.display=gOpen?'block':'none';
+  document.getElementById('gorb').textContent=gOpen?'AI':'×';
+}
+const qs=['How is AI reshaping knowledge work in India?','Which GCCs are leading AI transformation?','What skills will matter most by 2028?','How do CIOs manage agentic AI risks?','What happened at ET FoKW Bengaluru?'];
+let qi=0;
+setInterval(()=>{
+  qi=(qi+1)%qs.length;
+  const el=document.getElementById('gptQ');
+  el.style.opacity='0';
+  setTimeout(()=>{el.textContent=qs[qi];el.style.opacity='1';},200);
+},3800);
+(()=>{
+  try{
+    const s=new Date().toLocaleString('en-IN',{day:'numeric',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit',hour12:true,timeZone:'Asia/Kolkata'})+' IST';
+    document.getElementById('liveDate').textContent=s;
+  }catch(e){}
+})();
+// ── Podcast inline player ──
+const podDurations=[32,28,40]; // minutes
+const podState=[
+  {playing:false,elapsed:0,timer:null},
+  {playing:false,elapsed:0,timer:null},
+  {playing:false,elapsed:0,timer:null}
+];
+function fmtTime(sec){
+  const m=Math.floor(sec/60),s=Math.floor(sec%60);
+  return `${m}:${s.toString().padStart(2,'0')}`;
+}
+function togglePlay(idx){
+  const s=podState[idx];
+  const btn=document.querySelector(`#pod${idx} .pod-play-ctrl`);
+  const icon=btn.querySelector('.play-icon');
+  if(s.playing){
+    clearInterval(s.timer);s.playing=false;
+    icon.textContent='▶';btn.classList.remove('playing');
+  } else {
+    // pause others
+    podState.forEach((ps,i)=>{
+      if(i!==idx&&ps.playing){
+        clearInterval(ps.timer);ps.playing=false;
+        const ob=document.querySelector(`#pod${i} .pod-play-ctrl`);
+        ob.querySelector('.play-icon').textContent='▶';
+        ob.classList.remove('playing');
+      }
+    });
+    s.playing=true;icon.textContent='⏸';btn.classList.add('playing');
+    const total=podDurations[idx]*60;
+    s.timer=setInterval(()=>{
+      s.elapsed=Math.min(s.elapsed+1,total);
+      const pct=(s.elapsed/total)*100;
+      document.getElementById(`fill${idx}`).style.width=pct+'%';
+      document.getElementById(`time${idx}`).textContent=
+        `${fmtTime(s.elapsed)} / ${fmtTime(total)}`;
+      if(s.elapsed>=total){clearInterval(s.timer);s.playing=false;icon.textContent='▶';}
+    },1000);
+  }
+}
+function seekPod(e,idx){
+  const bar=e.currentTarget.querySelector('.pod-progress-bg');
+  const rect=bar.getBoundingClientRect();
+  const pct=Math.max(0,Math.min(1,(e.clientX-rect.left)/rect.width));
+  const total=podDurations[idx]*60;
+  podState[idx].elapsed=Math.floor(pct*total);
+  document.getElementById(`fill${idx}`).style.width=(pct*100)+'%';
+  document.getElementById(`time${idx}`).textContent=
+    `${fmtTime(podState[idx].elapsed)} / ${fmtTime(total)}`;
+}
+
+document.querySelectorAll('img').forEach((img,i)=>{
+  img.addEventListener('error',function(){
+    this.onerror=null;
+    this.src=`https://picsum.photos/seed/${i+10}/800/500`;
+  });
+});
+</script>
+</body>
+</html>
